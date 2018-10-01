@@ -6,6 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.imageio.IIOException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+
 /*
 public class Main extends Application {
 
@@ -25,8 +30,11 @@ public class Main extends Application {
 */
 public class Main {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws ClassNotFoundException, IOException, FileNotFoundException {
+        Scanner scanner = new Scanner(System.in);
+        Dictionary dict = new Dictionary();
+        String word = scanner.next();
+        dict.search(word);
     }
 }
 
