@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+// Java FX here
 /*
 public class Main extends Application {
 
@@ -34,7 +35,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Dictionary dict = new Dictionary();
         String word = scanner.next();
-        dict.search(word);
+        dict.show();
+        dict.lookUp(word);
     }
 }
 
