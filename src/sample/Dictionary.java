@@ -12,8 +12,7 @@ public class Dictionary {
     private static final String PATHTODICT = "wordlist.txt";
 	private String name;
 	private ArrayList<Word> words = new ArrayList<Word>();
-
-
+	private byte accurate[] = new byte[10000];
 
 	public Dictionary()
             throws FileNotFoundException, IOException {
@@ -33,7 +32,19 @@ public class Dictionary {
             break;
         }
     }
+/*
+    public ArrayList<Word> hint(String tu) {
+        for (Word word: words) {
+            int n = word.getWord();
+            int pre1 = 0;
+            int pre2 = 0;
+            int cur = 0;
+            for (int i=0; i<n; i++) {
 
+            }
+        }
+    }
+*/
 	public void lookUp(String tu) {
 	    Word word = new Word(tu);
 	    int vitri = words.indexOf(word);
