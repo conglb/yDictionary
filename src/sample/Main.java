@@ -15,7 +15,6 @@ import java.util.Scanner;
 import readdict.Stardict;
 
 // Java FX here
-/*
 public class Main extends Application {
 
     @Override
@@ -27,12 +26,17 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
+        Stardict readdict = new Stardict();
+        readdict.loadDictionary("oxdict/en_vi.ifo", "oxdict/en_vi.idx",
+                "oxdict/en_vi.dict");
+        Dictionary dict = new Dictionary(readdict);
         launch(args);
     }
 }
-*/
 
+/*
 public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, IOException, FileNotFoundException, LineUnavailableException, UnsupportedAudioFileException {
@@ -56,5 +60,6 @@ public class Main {
 
     }
 }
+*/
 
 

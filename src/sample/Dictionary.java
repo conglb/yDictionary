@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import readdict.Stardict;
 
 import static java.lang.System.*;
 
@@ -12,7 +13,8 @@ public class Dictionary {
     private static final String PATHTODICT = "wordlist.txt";
 	private String name;
 	private ArrayList<Word> words = new ArrayList<Word>();
-	private byte accurate[] = new byte[10000];
+	public ArrayList<String> wordslist = new ArrayList<String>();
+    private byte accurate[] = new byte[10000];
 
 	public Dictionary()
             throws FileNotFoundException, IOException {
@@ -31,6 +33,15 @@ public class Dictionary {
             Collections.sort(words);
             break;
         }
+    }
+    public Dictionary(Stardict stardict) {
+	    stardict.mIndex.export(wordslist);
+	    //System.out.println(wordslist.get(200));
+	    /*
+	    for (int i=0; i<wordslist.size(); i++) {
+	        System.out.println(wordslist.get(i));
+        }
+        */
     }
 /*
     public ArrayList<Word> hint(String tu) {

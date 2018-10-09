@@ -16,6 +16,14 @@ public class StardictIndex {
         }
     }
 
+    public void export(ArrayList<String> target) {
+        for (char c = 'a'; c <= 'z'; c++) {
+            for (int i=0; i<mMap.get(c).size(); i++) {
+                target.add(mMap.get(c).get(i).mWord);
+            }
+        }
+    }
+
     /**
      * Add one entry to the index Entries must be added in sorted order
      */

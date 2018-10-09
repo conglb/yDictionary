@@ -8,7 +8,7 @@ import readdict.StardictIndex.StarDictIndexEntry;
 
 public class Stardict {
     private StardictInfo mInfo;
-    private StardictIndex mIndex;
+    public StardictIndex mIndex;
     private RandomAccessFile mDictFile;
 
     public void loadDictionary(String infoFilePath, String indexFilePath,
