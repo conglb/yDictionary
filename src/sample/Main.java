@@ -20,18 +20,19 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("Dictionary");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
 
 
     public static void main(String[] args) throws IOException {
-        Stardict readdict = new Stardict();
-        readdict.loadDictionary("oxdict/en_vi.ifo", "oxdict/en_vi.idx",
-                "oxdict/en_vi.dict");
-        Dictionary dict = new Dictionary(readdict);
+        // phan nay toi cmt lai vi k biet no lam gi
+        //Stardict readdict = new Stardict();
+        //readdict.loadDictionary("oxdict/en_vi.ifo", "oxdict/en_vi.idx",
+        //        "oxdict/en_vi.dict");
+        //Dictionary dict = new Dictionary(readdict);
         launch(args);
     }
 }
