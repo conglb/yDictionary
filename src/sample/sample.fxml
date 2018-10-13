@@ -1,42 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
-   <left>
-      <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="textField" onAction="#textFieldSubition" promptText="Enter..." />
-            <ListView fx:id="listView" onKeyPressed="#keyHandle" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-         </children>
-      </VBox>
-   </left>
-   <center>
-      <TextArea fx:id="textArea" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER" />
-   </center>
-</BorderPane>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <tabs>
+        <Tab text="Word">
+            <content>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="wordInput" layoutX="80.0" layoutY="14.0" prefHeight="25.0" prefWidth="451.0" />
+                        <Button fx:id="searchButton" layoutX="527.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
+                        <Label layoutX="20.0" layoutY="14.0" prefHeight="25.0" prefWidth="52.0" text="Lookup" textAlignment="CENTER">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextArea fx:id="wordDefi" editable="false" layoutX="191.0" layoutY="72.0" prefHeight="278.0" prefWidth="387.0" />
+                        <Button fx:id="soundButton" layoutX="528.0" layoutY="46.0" mnemonicParsing="false" text="Sound" />
+                        <ListView fx:id="wordRela" layoutX="20.0" layoutY="71.0" prefHeight="279.0" prefWidth="163.0" />
+                        <Label layoutX="20.0" layoutY="50.0" text="Relatives" />
+                        <Label layoutX="191.0" layoutY="50.0" text="Definition" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Paragraph">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TextArea fx:id="paraInput" layoutX="17.0" layoutY="14.0" prefHeight="100.0" prefWidth="507.0" />
+                        <TextArea fx:id="transPara" editable="false" layoutX="17.0" layoutY="127.0" prefHeight="232.0" prefWidth="567.0" />
+                        <Button fx:id="transButton" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" text="Translate" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Favorite">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+        </Tab>
+        <Tab text="Modify">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
