@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import org.controlsfx.control.textfield.TextFields;
 import readdict.Stardict;
 
 import java.io.IOException;
@@ -54,7 +55,9 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Dictionary dict = new Dictionary(readdict);
 
+        TextFields.bindAutoCompletion(wordInput, dict.wordslist);
     }
 
     public void searchEvent(ActionEvent event) throws IOException {
@@ -62,6 +65,7 @@ public class Controller implements Initializable {
         String meaning = readdict.lookupWord(word);
         wordDefi.setText(meaning);
     }
+    
 
 
 
