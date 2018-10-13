@@ -11,7 +11,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import readdict.Stardict;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,9 +43,24 @@ public class Controller implements Initializable {
     @FXML
     public ListView<String> wordRela = new ListView<>();
 
+    public Stardict readdict= new Stardict();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        try {
+            readdict.loadDictionary("oxdict/en_vi.ifo", "oxdict/en_vi.idx",
+                    "oxdict/en_vi.dict");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void searchEvent(ActionEvent event) throws IOException {
+        String word = wordInput.getText();
+        String meaning = readdict.lookupWord(word);
+        wordDefi.setText(meaning);
     }
 
 
