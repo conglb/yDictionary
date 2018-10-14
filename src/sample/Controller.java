@@ -56,16 +56,18 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
         Dictionary dict = new Dictionary(readdict);
-
+        //Intend to multithread to load dict
         TextFields.bindAutoCompletion(wordInput, dict.wordslist);
+
     }
 
     public void searchEvent(ActionEvent event) throws IOException {
         String word = wordInput.getText();
         String meaning = readdict.lookupWord(word);
         wordDefi.setText(meaning);
+        Word.phatam("en","vi",word);
+        // Button Sound call Word.phatammp3();
     }
-    
 
 
 
