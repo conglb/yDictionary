@@ -65,8 +65,19 @@ public class Controller implements Initializable {
         String word = wordInput.getText();
         String meaning = readdict.lookupWord(word);
         wordDefi.setText(meaning);
-        Word.phatam("en","vi",word);
         // Button Sound call Word.phatammp3();
+    }
+
+    public void playSound(ActionEvent event) throws IOException {
+        String word = wordInput.getText();
+        Word.phatam("en","vi",word);
+        Word.phatammp3();
+    }
+
+    public void translateText(ActionEvent event) throws IOException{
+        String text = paraInput.getText();
+        transPara.setText(
+                Word.dich("en","vi", text));
     }
 
 

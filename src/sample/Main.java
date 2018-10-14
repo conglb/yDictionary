@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.Scanner;
 import readdict.Stardict;
 
+
+
 // Java FX here
 public class Main extends Application {
 
