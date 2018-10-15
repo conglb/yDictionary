@@ -44,7 +44,7 @@ public class StardictIndex {
         Character firstCharacter = word.charAt(0);
         ArrayList<StarDictIndexEntry> list = mMap.get(firstCharacter);
         int index = Collections.binarySearch(list, needle);
-        if (index == -1) {
+        if (index < 0) {
             return null;
         }
         return list.get(index);

@@ -14,6 +14,8 @@ import javafx.scene.input.KeyEvent;
 import org.controlsfx.control.textfield.TextFields;
 import readdict.Stardict;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,6 +47,7 @@ public class Controller implements Initializable {
     public ListView<String> wordRela = new ListView<>();
 
     public Stardict readdict= new Stardict();
+    public Dictionary dict;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,17 +58,25 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Dictionary dict = new Dictionary(readdict);
-        //Intend to multithread to load dict
-        TextFields.bindAutoCompletion(wordInput, dict.wordslist);
+        try {
+            dict = new Dictionary(readdict, "recently.txt", "favorite.txt");
+            TextFields.bindAutoCompletion(wordInput, dict.wordslist);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void searchEvent(ActionEvent event) throws IOException {
         String word = wordInput.getText();
         String meaning = readdict.lookupWord(word);
-        wordDefi.setText(meaning);
-        // Button Sound call Word.phatammp3();
+        if (meaning != null) {
+            wordDefi.setText(meaning);
+            dict.recentlist.add(word);
+        }
+        else {
+            wordDefi.setText("Not found!");
+        }
     }
 
     public void playSound(ActionEvent event) throws IOException {

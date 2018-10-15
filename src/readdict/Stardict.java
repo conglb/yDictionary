@@ -22,6 +22,7 @@ public class Stardict {
 
     public String lookupWord(String word) throws IOException {
         StarDictIndexEntry entry = mIndex.lookupWord(word);
+        if (entry == null) return null;
         return getMeaning(entry.mOffset, entry.mLength);
     }
 

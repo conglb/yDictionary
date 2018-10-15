@@ -14,6 +14,8 @@ public class Dictionary {
 	private String name;
 	private ArrayList<Word> words = new ArrayList<Word>();
 	public ArrayList<String> wordslist = new ArrayList<String>();
+	public ArrayList<String> favorlist = new ArrayList<>();
+	public ArrayList<String> recentlist = new ArrayList<>();
     private byte accurate[] = new byte[10000];
 
 	public Dictionary()
@@ -34,14 +36,42 @@ public class Dictionary {
             break;
         }
     }
-    public Dictionary(Stardict stardict) {
+    public Dictionary(Stardict stardict, String recentlyPath, String favoritePath) throws FileNotFoundException {
 	    stardict.mIndex.export(wordslist);
-	    //System.out.println(wordslist.get(200));
-	    /*
-	    for (int i=0; i<wordslist.size(); i++) {
-	        System.out.println(wordslist.get(i));
-        }
-        */
+	    new Thread() {
+	        public void run() {
+	            try {
+                    File inputFile = new File(favoritePath);
+                    FileReader fileReader = new FileReader(inputFile);
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    String w = bufferedReader.readLine();
+                    while (w != null) {
+                        favorlist.add(w);
+                        w = bufferedReader.readLine();
+                    }
+                }
+                catch (IOException e) {
+	                e.printStackTrace();
+                }
+            }
+        }.start();
+	    new Thread() {
+	        public void run() {
+	            try {
+                    File inputFile = new File(recentlyPath);
+                    FileReader fileReader = new FileReader(inputFile);
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    String w = bufferedReader.readLine();
+                    while (w != null) {
+                        recentlist.add(w);
+                        w = bufferedReader.readLine();
+                    }
+                }
+                catch (IOException e) {
+	                e.printStackTrace();
+                }
+            }
+        }.start();
     }
 /*
     public ArrayList<Word> hint(String tu) {
