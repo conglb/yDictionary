@@ -19,14 +19,12 @@ public class StardictIndex {
     public void export(ArrayList<String> target) {
         for (char c = 'a'; c <= 'z'; c++) {
             for (int i=0; i<mMap.get(c).size(); i++) {
-                target.add(mMap.get(c).get(i).mWord);
+                //if (!(mMap.get(c).get(i).mWord.contains(" ")))
+                    target.add(mMap.get(c).get(i).mWord);
             }
         }
     }
 
-    /**
-     * Add one entry to the index Entries must be added in sorted order
-     */
     public void addToIndex(String word, int offset, int length) {
         word = word.toLowerCase();
         Character firstCharacter = word.charAt(0);
@@ -50,6 +48,10 @@ public class StardictIndex {
         return list.get(index);
     }
 
+
+    /**
+     *
+     */
     public static class StarDictIndexEntry implements
             Comparable<StarDictIndexEntry> {
 

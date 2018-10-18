@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class Controller implements Initializable {
 
@@ -55,15 +56,20 @@ public class Controller implements Initializable {
         try {
             readdict.loadDictionary("oxdict/en_vi.ifo", "oxdict/en_vi.idx",
                     "oxdict/en_vi.dict");
+            dict = new Dictionary(readdict, "recently.txt", "favorite.txt");
+            TextFields.bindAutoCompletion(wordInput, t -> {
+                return dict.wordslist.stream().filter(elem ->
+                {
+                    return elem.toLowerCase().startsWith(t.getUserText().toLowerCase());
+                }).collect(Collectors.toList());
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try {
-            dict = new Dictionary(readdict, "recently.txt", "favorite.txt");
-            TextFields.bindAutoCompletion(wordInput, dict.wordslist);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
+    }
+
+    public void beforeExit() {
 
     }
 
@@ -72,6 +78,7 @@ public class Controller implements Initializable {
         String meaning = readdict.lookupWord(word);
         if (meaning != null) {
             wordDefi.setText(meaning);
+            dict.recentlist.add(word);
             dict.recentlist.add(word);
         }
         else {

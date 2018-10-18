@@ -7,14 +7,11 @@ import java.io.RandomAccessFile;
 import readdict.StardictIndex.StarDictIndexEntry;
 
 public class Stardict {
-    private StardictInfo mInfo;
     public StardictIndex mIndex;
     private RandomAccessFile mDictFile;
 
     public void loadDictionary(String infoFilePath, String indexFilePath,
             String dictFilePath) throws IOException {
-        StardictInfoParser infoParser = new StardictInfoParser();
-        mInfo = infoParser.parse(new File(infoFilePath));
         StardictIndexParser indexParser = new StardictIndexParser();
         mIndex = indexParser.parse(new File(indexFilePath));
         mDictFile = new RandomAccessFile(new File(dictFilePath), "r");
@@ -34,11 +31,11 @@ public class Stardict {
 
         int count = 0;
 
-        if (mInfo.mSameTypeSequence.equals("tm")) {
-            while (mDictFile.readByte() != 0) {
-                count++;
-            }
-        }
+        //if (mInfo.mSameTypeSequence.equals("tm")) {
+        //    while (mDictFile.readByte() != 0) {
+        //        count++;
+        //    }
+        //}
 
         byte[] buffer = new byte[(int) unsignedLength - count];
         mDictFile.read(buffer);

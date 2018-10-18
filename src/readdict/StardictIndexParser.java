@@ -26,7 +26,6 @@ public class StardictIndexParser {
                     String word = bos.toString("UTF-8");
                     int offset = in.readInt();
                     int length = in.readInt();
-
                     index.addToIndex(word, offset, length);
                     bos.reset();
                 } else {
