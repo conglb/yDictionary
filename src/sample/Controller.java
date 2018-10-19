@@ -47,35 +47,37 @@ public class Controller implements Initializable {
     @FXML
     public ListView<String> wordRela = new ListView<>();
 
-    public Stardict readdict= new Stardict();
-    public Dictionary dict;
+    public Dictionary dict = new Dictionary();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        try {
-            readdict.loadDictionary("oxdict/en_vi.ifo", "oxdict/en_vi.idx",
-                    "oxdict/en_vi.dict");
-            dict = new Dictionary(readdict, "recently.txt", "favorite.txt");
-            TextFields.bindAutoCompletion(wordInput, t -> {
-                return dict.wordslist.stream().filter(elem ->
-                {
-                    return elem.toLowerCase().startsWith(t.getUserText().toLowerCase());
-                }).collect(Collectors.toList());
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        TextFields.bindAutoCompletion(wordInput, t -> {
+            return dict.wordslist.stream().filter(elem ->
+            {
+                return elem.toLowerCase().startsWith(t.getUserText().toLowerCase());
+            }).collect(Collectors.toList());
+        });
 
     }
 
-    public void beforeExit() {
 
+    /*
+    public void addWord(ActionEvent event) {
+        dict.addWord(addWordWord.getText(), addWordMean.getText);
     }
+
+    public void deleteWord(ActionEvent event) {
+        dict.deleteWord(deleteWordWord.getText());
+    }
+
+    public void modifyWord(ActionEvent event) {
+        dict.modifyWord(modifyWordWord.getText(), modifyWordMean.getText());
+    }
+    */
 
     public void searchEvent(ActionEvent event) throws IOException {
         String word = wordInput.getText();
-        String meaning = readdict.lookupWord(word);
+        String meaning = dict.lookupWord(word);
         if (meaning != null) {
             wordDefi.setText(meaning);
             dict.recentlist.add(word);
