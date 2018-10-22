@@ -4,10 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import org.controlsfx.control.textfield.TextFields;
 
@@ -19,9 +16,9 @@ import java.util.stream.Collectors;
 public class Controller implements Initializable {
 
     @FXML
-    private AnchorPane wordPane, paraPane, favoPane, modiPane;
+    private AnchorPane wordPane, paraPane, modiPane;
     @FXML
-    private JFXButton wordButton, paraButton, favoButton, modiButton;
+    private JFXButton wordButton, paraButton, modiButton;
     @FXML
     public TextField wordInput;
     @FXML
@@ -31,17 +28,17 @@ public class Controller implements Initializable {
     @FXML
     public TextArea paraInput;
     @FXML
-    public Label wordOutput, paraOutput, favoOutput;
+    public Label wordOutput, paraOutput;
     @FXML
-    public Button translateButton;
-    @FXML
-    public Button favoAddButton;
+    public Button translateParaButton;
     @FXML
     public Button addWordButton;
     @FXML
     public Button deleteWordButton;
     @FXML
     public Button modifyWordButton;
+    @FXML
+    public ListView recentlyList;
 
     public void handleTabButtonAction(javafx.event.ActionEvent event) {
         if (event.getSource() == wordButton) {
@@ -49,9 +46,6 @@ public class Controller implements Initializable {
         } else
         if (event.getSource() == paraButton) {
             paraPane.toFront();
-        } else
-        if (event.getSource() == favoButton) {
-            favoPane.toFront();
         } else
         if (event.getSource() == modiButton) {
             modiPane.toFront();
@@ -92,6 +86,7 @@ public class Controller implements Initializable {
                 return elem.toLowerCase().startsWith(t.getUserText().toLowerCase());
             }).collect(Collectors.toList());
         });
+
     }
 
     public void addWord(ActionEvent event) {
@@ -125,6 +120,7 @@ public class Controller implements Initializable {
     }
 
     public void translateText(ActionEvent event) throws IOException{
+        paraOutput.setText("Translating...");
         String text = paraInput.getText();
         paraOutput.setText(
                 Word.dich("en","vi", text));
