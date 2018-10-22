@@ -58,6 +58,7 @@ public class Controller implements Initializable {
             }).collect(Collectors.toList());
         });
 
+        dict.addWord("oki", "dong y");
     }
 
 
@@ -80,8 +81,7 @@ public class Controller implements Initializable {
         String meaning = dict.lookupWord(word);
         if (meaning != null) {
             wordDefi.setText(meaning);
-            dict.recentlist.add(word);
-            dict.recentlist.add(word);
+            dict.addRecentlyWord(word);
         }
         else {
             wordDefi.setText("Not found!");

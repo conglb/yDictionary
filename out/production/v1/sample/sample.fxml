@@ -26,7 +26,7 @@
                         <TextArea fx:id="wordDefi" editable="false" layoutX="191.0" layoutY="72.0" prefHeight="278.0" prefWidth="387.0" />
                         <Button fx:id="soundButton" layoutX="528.0" layoutY="46.0" mnemonicParsing="false" onAction="#playSound" text="Sound" />
                         <ListView fx:id="wordRela" layoutX="20.0" layoutY="71.0" prefHeight="279.0" prefWidth="163.0" />
-                        <Label layoutX="20.0" layoutY="50.0" text="Relatives" />
+                        <Label layoutX="20.0" layoutY="50.0" text="Recently" />
                         <Label layoutX="191.0" layoutY="50.0" text="Definition" />
                     </children>
                 </AnchorPane>
@@ -42,14 +42,27 @@
                     </children></AnchorPane>
             </content>
         </Tab>
-        <Tab text="Recently">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-        </Tab>
         <Tab text="Modify">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane>
+               <children>
+                  <TextArea fx:id="paraInput" prefHeight="100.0" prefWidth="507.0" />
+                  <Label prefHeight="25.0" prefWidth="52.0" text="Add word" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="25.0" prefWidth="52.0" text="Edit word" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="25.0" prefWidth="52.0" text="Lookup" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
             </content>
         </Tab>
     </tabs>

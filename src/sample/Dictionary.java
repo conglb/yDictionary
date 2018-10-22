@@ -38,6 +38,7 @@ public class Dictionary {
                         word = bufferedReader.readLine();
                         mean = bufferedReader.readLine();
                         newwords.put(word, mean);
+                        wordslist.add(word);
                         break;
                     case "2":
                         word = bufferedReader.readLine();
@@ -48,7 +49,7 @@ public class Dictionary {
                         mean = bufferedReader.readLine();
                         if (newwords.containsKey(word)) {
                             newwords.replace(word, mean);
-                        } else newwords.put(word, mean);
+                        } else {newwords.put(word, mean);}
                         break;
                     default:
                         break;
@@ -79,12 +80,11 @@ public class Dictionary {
     public void addRecentlyWord(String word) {
         new Thread() {
             public void run() {
-                try {
-                    File outputFile = new File(PATHTORECENTLYWORD);
-                    FileWriter fileWriter = new FileWriter(outputFile, true);
-                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                    PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                    printWriter.println(word);
+                try(FileWriter fw = new FileWriter(PATHTORECENTLYWORD, true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter out = new PrintWriter(bw))
+                {
+                    out.println(word);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -106,14 +106,13 @@ public class Dictionary {
             public void run() {
                 wordslist.add(word);
                 newwords.put(word, meaning);
-                try {
-                    File outputFile = new File(PATHTONEWWORD);
-                    FileWriter fileWriter = new FileWriter(outputFile, true);
-                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                    PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                    printWriter.println("1");
-                    printWriter.println(word);
-                    printWriter.println(meaning);
+                try(FileWriter fw = new FileWriter(PATHTORECENTLYWORD, true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter out = new PrintWriter(bw))
+                {
+                    out.println(1);
+                    out.println(word);
+                    out.println(meaning);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -125,13 +124,12 @@ public class Dictionary {
         new Thread() {
             public void run() {
                 wordslist.remove(word);
-                try {
-                    File outputFile = new File(PATHTONEWWORD);
-                    FileWriter fileWriter = new FileWriter(outputFile, true);
-                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                    PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                    printWriter.println("2");
-                    printWriter.println(word);
+                try(FileWriter fw = new FileWriter(PATHTORECENTLYWORD, true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter out = new PrintWriter(bw))
+                {
+                    out.println(2);
+                    out.println(word);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -146,14 +144,13 @@ public class Dictionary {
                 if (newwords.containsKey(word)) {
                     newwords.replace(word, meaning);
                 } else newwords.put(word, meaning);
-                try {
-                    File outputFile = new File(PATHTONEWWORD);
-                    FileWriter fileWriter = new FileWriter(outputFile, true);
-                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                    PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                    printWriter.println("3");
-                    printWriter.println(word);
-                    printWriter.println(meaning);
+                try(FileWriter fw = new FileWriter(PATHTORECENTLYWORD, true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter out = new PrintWriter(bw))
+                {
+                    out.println(3);
+                    out.println(word);
+                    out.println(meaning);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
