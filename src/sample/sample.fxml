@@ -28,25 +28,50 @@
                </children></AnchorPane>
             <AnchorPane fx:id="modiPane" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="423.0" style="-fx-background-color: #572D3D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="addWordButton" layoutX="426.0" layoutY="422.0" mnemonicParsing="false" onAction="#addWord" text="Thêm" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="136.0" />
-                  <Button fx:id="deleteWordButton" layoutX="481.0" layoutY="422.0" mnemonicParsing="false" onAction="#deleteWord" text="Xoá" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="90.0" />
-                  <Button fx:id="modifyWordButton" layoutX="526.0" layoutY="422.0" mnemonicParsing="false" onAction="#modifyWord" text="Sửa" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="46.0" />
+                  <Button fx:id="addWordButton" layoutX="284.0" layoutY="417.0" mnemonicParsing="false" onAction="#addWord" prefHeight="40.0" prefWidth="79.0" text="Thêm" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="245.0">
+                     <graphic>
+                        <ImageView fitHeight="29.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@addIcon1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="deleteWordButton" layoutX="384.0" layoutY="417.0" mnemonicParsing="false" onAction="#deleteWord" prefHeight="41.0" prefWidth="79.0" text="Xoá" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="145.0">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@minusIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="modifyWordButton" layoutX="483.0" layoutY="416.0" mnemonicParsing="false" onAction="#modifyWord" prefHeight="41.0" prefWidth="79.0" text="Sửa" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="46.0">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@editIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <TextField fx:id="modiTextField" layoutX="31.0" layoutY="48.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="46.0" />
-                  <TextArea fx:id="modiTextArea" layoutX="31.0" layoutY="124.0" prefHeight="272.0" prefWidth="531.0" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="124.0" />
+                  <TextArea fx:id="modiTextArea" layoutX="31.0" layoutY="124.0" prefHeight="261.0" prefWidth="531.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="124.0" />
                   <Label layoutX="31.0" layoutY="14.0" prefHeight="28.0" prefWidth="46.0" style="-fx-text-fill: white; -fx-font-size: 15px;" text="Word" />
                   <Label layoutX="31.0" layoutY="89.0" prefHeight="28.0" prefWidth="79.0" style="-fx-text-fill: white; -fx-font-size: 15px;" text="Defination" />
-               </children></AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="wordPane" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="518.0" style="-fx-background-color: #0055B9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <TextField fx:id="wordInput" layoutX="23.0" layoutY="21.0" onAction="#searchEvent" prefHeight="32.0" prefWidth="279.0" promptText="Enter the word" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="306.0" />
-                  <Button fx:id="translateWord" layoutX="312.0" layoutY="23.0" mnemonicParsing="false" onAction="#playSound" prefHeight="28.0" prefWidth="27.0" style="-fx-background-color: transparent;">
+                  <Button fx:id="translateWord" layoutX="310.0" layoutY="17.0" mnemonicParsing="false" onAction="#playSound" prefHeight="28.0" prefWidth="27.0" style="-fx-background-color: transparent;">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="31.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@FavoriteIcon3.png" />
+                              <Image url="@soundIcon3.png" />
                            </image>
                         </ImageView>
                      </graphic>
