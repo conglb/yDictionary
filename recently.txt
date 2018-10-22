@@ -3,3 +3,5 @@ hiatal
 1
 oki
 dong y
+a block
+migration

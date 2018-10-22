@@ -1,21 +1,16 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import org.controlsfx.control.textfield.TextFields;
-import readdict.Stardict;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +18,46 @@ import java.util.stream.Collectors;
 
 public class Controller implements Initializable {
 
+    @FXML
+    private AnchorPane wordPane, paraPane, favoPane, modiPane;
+    @FXML
+    private JFXButton wordButton, paraButton, favoButton, modiButton;
+    @FXML
+    public TextField wordInput;
+    @FXML
+    public TextField modiTextField;
+    @FXML
+    public TextArea modiTextArea;
+    @FXML
+    public TextArea paraInput;
+    @FXML
+    public Label wordOutput, paraOutput, favoOutput;
+    @FXML
+    public Button translateButton;
+    @FXML
+    public Button favoAddButton;
+    @FXML
+    public Button addWordButton;
+    @FXML
+    public Button deleteWordButton;
+    @FXML
+    public Button modifyWordButton;
+
+    public void handleTabButtonAction(javafx.event.ActionEvent event) {
+        if (event.getSource() == wordButton) {
+            wordPane.toFront();
+        } else
+        if (event.getSource() == paraButton) {
+            paraPane.toFront();
+        } else
+        if (event.getSource() == favoButton) {
+            favoPane.toFront();
+        } else
+        if (event.getSource() == modiButton) {
+            modiPane.toFront();
+        }
+    }
+/*
     @FXML
     public TextField wordInput = new TextField();
 
@@ -46,7 +81,7 @@ public class Controller implements Initializable {
 
     @FXML
     public ListView<String> wordRela = new ListView<>();
-
+*/
     public Dictionary dict = new Dictionary();
 
     @Override
@@ -57,34 +92,29 @@ public class Controller implements Initializable {
                 return elem.toLowerCase().startsWith(t.getUserText().toLowerCase());
             }).collect(Collectors.toList());
         });
-
-        dict.addWord("oki", "dong y");
     }
 
-
-    /*
     public void addWord(ActionEvent event) {
-        dict.addWord(addWordWord.getText(), addWordMean.getText);
+        dict.addWord(modiTextField.getText(), modiTextArea.getText());
     }
 
     public void deleteWord(ActionEvent event) {
-        dict.deleteWord(deleteWordWord.getText());
+        dict.deleteWord(modiTextField.getText());
     }
 
     public void modifyWord(ActionEvent event) {
-        dict.modifyWord(modifyWordWord.getText(), modifyWordMean.getText());
+        dict.modifyWord(modiTextField.getText(), modiTextArea.getText());
     }
-    */
 
     public void searchEvent(ActionEvent event) throws IOException {
         String word = wordInput.getText();
         String meaning = dict.lookupWord(word);
         if (meaning != null) {
-            wordDefi.setText(meaning);
+            wordOutput.setText(meaning);
             dict.addRecentlyWord(word);
         }
         else {
-            wordDefi.setText("Not found!");
+            wordOutput.setText("Not found!");
         }
     }
 
@@ -96,7 +126,7 @@ public class Controller implements Initializable {
 
     public void translateText(ActionEvent event) throws IOException{
         String text = paraInput.getText();
-        transPara.setText(
+        paraOutput.setText(
                 Word.dich("en","vi", text));
     }
 
