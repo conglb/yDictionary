@@ -77,7 +77,7 @@
                      </graphic>
                   </Button>
                   <Label fx:id="wordOutput" alignment="TOP_LEFT" layoutX="23.0" layoutY="84.0" prefHeight="379.0" prefWidth="332.0" style="-fx-text-fill: #fff; -fx-background-color: #2E73C5; -fx-font-size: 14px; -fx-label-padding: 10 10 10 10;" wrapText="true" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="84.0" />
-                  <ListView layoutX="371.0" layoutY="84.0" prefHeight="379.0" prefWidth="200.0" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="84.0" />
+                  <ListView fx:id="recentlyList" layoutX="371.0" layoutY="84.0" prefHeight="379.0" prefWidth="200.0" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="84.0" />
                   <Label layoutX="370.0" layoutY="18.0" prefHeight="40.0" prefWidth="55.0" style="-fx-text-fill: white; -fx-font-size: 14px;" text="Recently" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="18.0" />
                </children></AnchorPane>
          </children>

@@ -60,8 +60,8 @@ public class Dictionary {
             e.printStackTrace();
         }
         // init recently list
-        new Thread() {
-            public void run() {
+        //new Thread() {
+        //    public void run() {
                 try {
                     File inputFile = new File(PATHTORECENTLYWORD);
                     FileReader fileReader = new FileReader(inputFile);
@@ -73,8 +73,9 @@ public class Dictionary {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-        }.start();
+        //    }
+        //}.start();
+        for (String word: recentlist) System.out.println(word);
     }
 
     public void addRecentlyWord(String word) {
@@ -106,7 +107,7 @@ public class Dictionary {
             public void run() {
                 wordslist.add(word);
                 newwords.put(word, meaning);
-                try(FileWriter fw = new FileWriter(PATHTORECENTLYWORD, true);
+                try(FileWriter fw = new FileWriter(PATHTONEWWORD, true);
                     BufferedWriter bw = new BufferedWriter(fw);
                     PrintWriter out = new PrintWriter(bw))
                 {
@@ -124,7 +125,7 @@ public class Dictionary {
         new Thread() {
             public void run() {
                 wordslist.remove(word);
-                try(FileWriter fw = new FileWriter(PATHTORECENTLYWORD, true);
+                try(FileWriter fw = new FileWriter(PATHTONEWWORD, true);
                     BufferedWriter bw = new BufferedWriter(fw);
                     PrintWriter out = new PrintWriter(bw))
                 {
@@ -144,7 +145,7 @@ public class Dictionary {
                 if (newwords.containsKey(word)) {
                     newwords.replace(word, meaning);
                 } else newwords.put(word, meaning);
-                try(FileWriter fw = new FileWriter(PATHTORECENTLYWORD, true);
+                try(FileWriter fw = new FileWriter(PATHTONEWWORD, true);
                     BufferedWriter bw = new BufferedWriter(fw);
                     PrintWriter out = new PrintWriter(bw))
                 {

@@ -1,15 +1,19 @@
 package sample;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -37,8 +41,12 @@ public class Controller implements Initializable {
     public Button deleteWordButton;
     @FXML
     public Button modifyWordButton;
+
+    public Dictionary dict = new Dictionary();
+
     @FXML
-    public ListView recentlyList;
+    public ObservableList<String> items = FXCollections.observableArrayList(dict.recentlist);
+    public ListView<String> recentlyList = new ListView<String>();
 
     public void handleTabButtonAction(javafx.event.ActionEvent event) {
         if (event.getSource() == wordButton) {
@@ -76,7 +84,10 @@ public class Controller implements Initializable {
     @FXML
     public ListView<String> wordRela = new ListView<>();
 */
-    public Dictionary dict = new Dictionary();
+    public Alert alert = new Alert( Alert.AlertType.CONFIRMATION );
+    ButtonType buttonTypeCancel = new ButtonType( "No", ButtonBar.ButtonData.CANCEL_CLOSE );
+    ButtonType buttonTypeOne = new ButtonType( "Yes" );
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -86,19 +97,51 @@ public class Controller implements Initializable {
                 return elem.toLowerCase().startsWith(t.getUserText().toLowerCase());
             }).collect(Collectors.toList());
         });
+        recentlyList.setItems(items);
+        alert.setTitle( "Confirm" );
+        alert.setHeaderText( "Do you sure about this modify" );
+        alert.setContentText( "Choose your option." );
+        alert.initModality( Modality.NONE );
+        alert.getButtonTypes().setAll( buttonTypeOne, buttonTypeCancel );
 
+        Button b = new Button( "close alert" );
+        b.setOnAction(( ActionEvent event ) ->
+        {
+            for ( ButtonType bt : alert.getDialogPane().getButtonTypes() )
+            {
+                System.out.println( "bt = " + bt );
+                if ( bt.getButtonData() == ButtonBar.ButtonData.CANCEL_CLOSE )
+                {
+                    Button cancelButton = ( Button ) alert.getDialogPane().lookupButton( bt );
+                    cancelButton.fire();
+                    break;
+                }
+            }
+        });
     }
 
     public void addWord(ActionEvent event) {
-        dict.addWord(modiTextField.getText(), modiTextArea.getText());
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne) {
+            dict.addWord(modiTextField.getText(), modiTextArea.getText());
+        }
     }
 
     public void deleteWord(ActionEvent event) {
-        dict.deleteWord(modiTextField.getText());
+        Optional<ButtonType> result = alert.showAndWait();
+        if ( result.get() == buttonTypeOne) {
+            dict.deleteWord(modiTextField.getText());
+        }
     }
 
     public void modifyWord(ActionEvent event) {
-        dict.modifyWord(modiTextField.getText(), modiTextArea.getText());
+        Optional<ButtonType> result = alert.showAndWait();
+        if ( result.get() == buttonTypeOne )
+        {
+            dict.modifyWord(modiTextField.getText(), modiTextArea.getText());
+        }
+
     }
 
     public void searchEvent(ActionEvent event) throws IOException {
@@ -111,6 +154,7 @@ public class Controller implements Initializable {
         else {
             wordOutput.setText("Not found!");
         }
+        recentlyList.getItems().add(0,word);
     }
 
     public void playSound(ActionEvent event) throws IOException {

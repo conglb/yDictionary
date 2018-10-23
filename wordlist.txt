@@ -10,4 +10,29 @@ a
 a b c
 3
 hello
-xin chao
+xin chao2
+Obama
+1
+Obama
+tong thong thu 41
+3
+Obama
+tong thong thu 42
+3
+Obama
+tong thong thu 42
+2
+Obama
+1
+Obama
+tong thong thu 42
+1
+Obama
+tong thong thu 42
+1
+Trump
+Tong thong thu 43
+2
+Obama
+2
+Obama
