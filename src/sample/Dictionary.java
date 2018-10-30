@@ -75,7 +75,6 @@ public class Dictionary {
                 }
         //    }
         //}.start();
-        for (String word: recentlist) System.out.println(word);
     }
 
     public void addRecentlyWord(String word) {
@@ -160,6 +159,10 @@ public class Dictionary {
     }
 
     public void run() throws  IOException{
+        System.out.println("1: tra tu");
+        System.out.println("2: them tu");
+        System.out.println("3: xoa tu");
+        System.out.println("4: sua tu");
         Scanner scanner = new Scanner(System.in);
         String word, meaning;
         while (true) {
@@ -180,6 +183,8 @@ public class Dictionary {
                     word = scanner.next();
                     meaning = scanner.nextLine();
                     modifyWord(word, meaning);
+                default:
+                    break;
             }
         }
     }
