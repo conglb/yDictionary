@@ -120,14 +120,13 @@ public class Controller implements Initializable {
         });
 
 
-/*
+
         try {
             dict.run();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-*/
 
     }
 

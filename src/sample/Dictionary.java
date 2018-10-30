@@ -163,6 +163,7 @@ public class Dictionary {
         System.out.println("2: them tu");
         System.out.println("3: xoa tu");
         System.out.println("4: sua tu");
+        System.out.println("5: wordlist");
         Scanner scanner = new Scanner(System.in);
         String word, meaning;
         while (true) {
@@ -171,7 +172,13 @@ public class Dictionary {
             {
                 case 1:
                     word = scanner.next();
-                    System.out.println(lookupWord(word));
+                    meaning = lookupWord(word);
+                    if (meaning != null) {
+                        System.out.println(meaning);
+                    }
+                    else {
+                        System.out.println("Not found!");
+                    }
                 case 2:
                     word = scanner.next();
                     meaning = scanner.next();
@@ -183,6 +190,9 @@ public class Dictionary {
                     word = scanner.next();
                     meaning = scanner.nextLine();
                     modifyWord(word, meaning);
+                case 5:
+                    for (String iter: wordslist)
+                        System.out.println(iter);
                 default:
                     break;
             }
