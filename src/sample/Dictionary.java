@@ -8,25 +8,33 @@ import readdict.Stardict;
 
 import static java.lang.System.*;
 
+/**
+ * init and manipulate dictionary
+ */
 public class Dictionary {
-    private static final String PATHTONEWWORD = "wordlist.txt";
-    private static final String PATHTORECENTLYWORD = "recently.txt";
+    private static final String PATHTONEWWORD = "cache/wordlist.txt";
+    private static final String PATHTORECENTLYWORD = "cache/recently.txt";
 	public ArrayList<String> wordslist = new ArrayList<String>();
 	public ArrayList<String> recentlist = new ArrayList<>();
 	public HashMap<String, String> newwords = new HashMap<>();
 	private Stardict stardict = new Stardict();
 
     public Dictionary() {
-        // init wordlist
+        /**
+         * read wordlist form  oxford dictionary
+         */
         try {
-            stardict.loadDictionary("oxdict/en_vi.ifo", "oxdict/en_vi.idx",
-                    "oxdict/en_vi.dict");
+            stardict.loadDictionary("res/dictionary/oxdict/en_vi.ifo", "res/dictionary/oxdict/en_vi.idx",
+                    "res/dictionary/oxdict/en_vi.dict");
         }
         catch (IOException e) {
             e.printStackTrace();
         }
         stardict.mIndex.export(wordslist);
-        // init newword, deleteword list
+
+        /**
+         * read modify dictionary history
+         */
         try {
             File inputFile = new File(PATHTONEWWORD);
             FileReader fileReader = new FileReader(inputFile);
@@ -59,6 +67,10 @@ public class Dictionary {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        /**
+         * read recently word list in cache
+         */
         // init recently list
         //new Thread() {
         //    public void run() {

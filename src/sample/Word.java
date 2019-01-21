@@ -11,50 +11,16 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class Word implements Comparable<Word>{
-	private String sound;
-	private String mean;
-	private String phienam;
+
 	private String word;
 
-	public Word(String word) {
+	public Word() {
 		this.word = word;
     }
 
-	public String getSound() {
-		return sound;
-	}
-
-	public void setSound(String sound) {
-		this.sound = sound;
-	}
-
-	public String getMean() {
-		return mean;
-	}
-
-	public void setMean(String mean) {
-		this.mean = mean;
-	}
-
-	public String getPhienam() {
-		return phienam;
-	}
-
-	public void setPhienam(String phienam) {
-		this.phienam = phienam;
-	}
-
-	public String getWord() {
-		return word;
-	}
-
-	public void setWord(String word) {
-		this.word = word;
-	}
-
-	public int compareTo(Word other) {
-		return word.compareTo(other.word);
-	}
+    public int compareTo(Word word) {
+	    return word.word == this.word ? 0 : 1;
+    }
 
 	public boolean isEquivalent(Word other) {
 		return word.equals(other.word);
@@ -67,7 +33,7 @@ public class Word implements Comparable<Word>{
 		return false;
 	}
 
-	public static String dich(String langFrom, String langTo, String text) throws IOException {
+	public static String translate(String langFrom, String langTo, String text) throws IOException {
 		// INSERT YOU URL HERE
 		String urlStr = "https://script.google.com/macros/s/AKfycbyOk-UGlU1Z3gdH1ue9LV7cezo1bqdqnh8AVYC49Cq2t89_fdw/exec" +
 				"?q=" + URLEncoder.encode(text, "UTF-8") +
