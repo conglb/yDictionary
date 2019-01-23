@@ -13,12 +13,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view.fxml"));
         Parent root = loader.load();
         Controller controller = loader.getController();
         primaryStage.setTitle("Dictionary");
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("view/app.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }

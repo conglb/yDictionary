@@ -56,7 +56,7 @@ public class Word implements Comparable<Word>{
 		con.addRequestProperty("User-Agent", "Mozilla/5.0");
 		InputStream audioSrc = con.getInputStream();
 		DataInputStream read = new DataInputStream(audioSrc);
-		OutputStream outputStream = new FileOutputStream(new File("phatam.mp3"));
+		OutputStream outputStream = new FileOutputStream(new File("res/sound/phatam.mp3"));
 		byte[] buffer = new byte[1024];
 		int len;
 		while ((len = read.read(buffer)) > 0) {
@@ -66,7 +66,7 @@ public class Word implements Comparable<Word>{
 	}
 
 	public static void phatammp3() {
-		MP3 mp3 = new MP3("phatam.mp3");
+		MP3 mp3 = new MP3("res/sound/phatam.mp3");
 		mp3.play();
 	}
 }

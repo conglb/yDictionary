@@ -1,0 +1,14 @@
+.tab-label {
+    -fx-content-display: top;
+}
+.tab-pane {
+    -fx-background-color: rgba(183, 179, 178, 0.91);
+}
+.text-area {
+    -fx-background-color: #5d5a5a;
+}
+#lookup {
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 10 0;
+    -fx-font-weight: 700;
+}
