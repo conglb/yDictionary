@@ -1,4 +1,4 @@
-package sample;
+package model;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;

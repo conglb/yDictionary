@@ -12,7 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
       <AnchorPane layoutX="187.0" prefHeight="400.0" prefWidth="532.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="177.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -32,7 +32,7 @@
                      <graphic>
                         <ImageView fitHeight="29.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@addIcon1.png" />
+                              <Image url="@../../res/image/addIcon1.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -41,7 +41,7 @@
                      <graphic>
                         <ImageView fitHeight="33.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@minusIcon.png" />
+                              <Image url="@../../res/image/minusIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -50,7 +50,7 @@
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@editIcon.png" />
+                              <Image url="@../../res/image/editIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -71,7 +71,7 @@
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@soundIcon3.png" />
+                              <Image url="@../../res/image/soundIcon3.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -96,17 +96,17 @@
             </AnchorPane>
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="7.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@WordIcon2.png" />
+                  <Image url="@../../res/image/WordIcon2.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="8.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ParagraphIcon.png" />
+                  <Image url="@../../res/image/ParagraphIcon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="7.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ModifyIcon.png" />
+                  <Image url="@../../res/image/ModifyIcon.png" />
                </image>
             </ImageView>
             <JFXButton fx:id="wordButton" graphicTextGap="50.0" layoutY="50.0" onAction="#handleTabButtonAction" prefHeight="48.0" prefWidth="176.0" text="Word     " />

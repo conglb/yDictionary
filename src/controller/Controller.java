@@ -1,4 +1,4 @@
-package sample;
+package controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import org.controlsfx.control.textfield.TextFields;
+import model.Dictionary;
+import model.Word;
 
 import java.io.IOException;
 import java.net.URL;
