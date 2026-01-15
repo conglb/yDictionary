@@ -1,5 +1,5 @@
 # yDictionary
-Dictionary application. Vocabulary list can be customized. Including Oxford, Cambridge... dictionary. Free to your own dictionary. Using JavaFX. 
+Dictionary application. Vocabulary list can be customized. Including Oxford, Cambridge... dictionary. Free to add your own dictionary. Using JavaFX. 
 
 ### Demonstration
 <div style = "display: flex; justify-content: center;">
