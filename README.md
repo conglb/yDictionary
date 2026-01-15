@@ -1,26 +1,6 @@
 # yDictionary
 Dictionary application. Vocabulary list can be customized. Including Oxford, Cambridge... dictionary. Free to add your own dictionary. Using JavaFX. 
 
-### Demonstration
-<div style = "display: flex; justify-content: center;">
-  <div style = "width: 250px; 
-  margin: 0 1rem;
-    margin-bottom : 1.5rem;">
-      <img style = "display: inline-block" src = "./doc/main_screen_technology.png">
-  </div>
-  <div style = "width: 250px; 
-  margin: 0 1rem;
-    margin-bottom : 1.5rem;">
-      <img style = "display: inline-block" src = "./doc/paragraph_screen.png">
-  </div>
-  <div style = "width: 250px; 
-  margin: 0 1rem;
-    margin-bottom : 1.5rem;">
-      <img style = "display: inline-block" src = "./doc/modify_demo.png">
-  </div>
-</div>
-
-
 ### Preparation
 - Java JDK 10
 - JavaFX SDK 11
@@ -39,4 +19,23 @@ Using command:
 ```
 Using IntelliJ IDEA: Open Project Structure, add all *.jar files in `lib` folder.
 
+
+### Demonstration
+<div style = "display: flex; justify-content: center;">
+  <div style = "width: 250px; 
+  margin: 0 1rem;
+    margin-bottom : 1.5rem;">
+      <img style = "display: inline-block" src = "./doc/main_screen_technology.png">
+  </div>
+  <div style = "width: 250px; 
+  margin: 0 1rem;
+    margin-bottom : 1.5rem;">
+      <img style = "display: inline-block" src = "./doc/paragraph_screen.png">
+  </div>
+  <div style = "width: 250px; 
+  margin: 0 1rem;
+    margin-bottom : 1.5rem;">
+      <img style = "display: inline-block" src = "./doc/modify_demo.png">
+  </div>
+</div>
 
